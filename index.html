@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Todo NabillaDian</title>
+
+    <!--CSS External-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--Header-->
+    <header>
+        <h1 class="text-9x1 font-bold">Todo List</h1>
+    </header>
+
+    <!--Main content-->
+    <main>   
+   <!--Form-->
+    <section>
+        <form id="todo-form">
+            <label for="todo-input" class="sr-only">Todo text</label>
+            <input type="text" class="border rounded p-[6px]" id="todo-input" placeholder="Add a new todo..." required>
+
+            <label for="date-input" class="sr-only">Due date</label>
+            <input type="date" class="border rounded p-[6px]" id="date-input" required>
+
+            <button type="submit" class="bg-pink-400 rounded text-white p-[6px]">Add Todo</button>
+        </form>
+    </section>
+
+    <!--Action-->
+    <section class="mt-[14px] flex gap-4">
+        <label for="filter" class="sr-only">Filter todos</label>
+        <select id="filter" class="border rounded p-[6px]" onchange="filterTodo()" aria-label="Filter todos">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+        </select>
+        <button type="button" class="bg-pink-400 rounded text-white p-[6px]" onclick="sortTodoByStatus()">Filter</button>
+        <button type="button" class="bg-pink-400 rounded text-white p-[6px]" onclick="deleteAllTodo()">Delete All</button>
+    </section>
+
+    <!--List Todo-->
+       <table id="todo-list" class="mt-[14px] w-full border border-gray-300 border-collapse text-center">
+  <thead class="bg-pink-200">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2">Task</th>
+      <th class="border border-gray-300 px-4 py-2">Due Date</th>
+      <th class="border border-gray-300 px-4 py-2">Status</th>
+      <th class="border border-gray-300 px-4 py-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody id="taskBody" class="divide-y divide-gray-200">
+    <tr id="emptyRow">
+      <td colspan="4" class="py-3 text-gray-500">No tasks found</td>
+    </tr>
+  </tbody>
+</table>
+    <!--Footer-->
+    <footer class="mt-[14px] text-center text-gray-500">
+        <p>&copy; 2025 Todo App by REVOU NabillaDian</p>
+    </footer>
+
+    <!--JS External-->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
